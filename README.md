@@ -48,6 +48,8 @@ Before running the application, you need to connect it to a Firebase project.
     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="YOUR_STORAGE_BUCKET"
     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="YOUR_MESSAGING_SENDER_ID"
     NEXT_PUBLIC_FIREBASE_APP_ID="YOUR_APP_ID"
+    NEXT_PUBLIC_INSTAGRAM_ID="Your Insta Id"
+    NEXT_PUBLIC_SHOP_ADDRESS="Shop Address"
     NEXT_PUBLIC_HERO_HEADLINE="From Kitchen to Table — Elegance Redefined"
     NEXT_PUBLIC_HERO_SUBHEADING="Explore premium crockery and kitchenware crafted to elevate your dining experience."
     NEXT_PUBLIC_SITE_TITLE="Shree Enterprises"
