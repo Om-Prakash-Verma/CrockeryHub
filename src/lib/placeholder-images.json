@@ -1,0 +1,99 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A beautiful arrangement of handmade pottery and crockery on a dark surface.",
+      "imageUrl": "/hero.jpg"
+    },
+    {
+      "id": "ceramic-mug-1",
+      "description": "A rustic ceramic mug with a handle.",
+      "imageUrl": "https://images.unsplash.com/photo-1723021178142-369f81614c97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjZXJhbWljJTIwbXVnfGVufDB8fHx8MTc2MjY4NTQ2MHww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "ceramic-mug-2",
+      "description": "Side view of a rustic ceramic mug.",
+      "imageUrl": "https://images.unsplash.com/photo-1536936812504-0e77dc3f0b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjZXJhbWljJTIwbXVnfGVufDB8fHx8MTc2MjY4NTQ2MHww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "ceramic-mug-3",
+      "description": "Top down view of a rustic ceramic mug.",
+      "imageUrl": "https://images.unsplash.com/photo-1643114451805-f14ea7bb0dfb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbXB0eSUyMG11Z3xlbnwwfHx8fDE3NjI2OTIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "handmade-plate-1",
+      "description": "A beautifully glazed handmade plate.",
+      "imageUrl": "https://images.unsplash.com/photo-1693042978565-4c4a2f06605b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kbWFkZSUyMHBsYXRlfGVufDB8fHx8MTc2MjY5MjIxNHww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "handmade-plate-2",
+      "description": "A stack of handmade plates.",
+      "imageUrl": "https://images.unsplash.com/photo-1715690998787-3ccd89b08768?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwbGF0ZXMlMjBzdGFja3xlbnwwfHx8fDE3NjI2OTIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "handmade-plate-3",
+      "description": "Close up of the texture on a handmade plate.",
+      "imageUrl": "https://images.unsplash.com/photo-1554755229-ca4470e07232?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjZXJhbWljJTIwdGV4dHVyZXxlbnwwfHx8fDE3NjI2ODgxMzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "earthen-bowl-1",
+      "description": "A deep earthen bowl, perfect for soups or salads.",
+      "imageUrl": "https://images.unsplash.com/photo-1621453571889-0b228e998080?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlYXJ0aGVuJTIwYm93bHxlbnwwfHx8fDE3NjI2OTIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "earthen-bowl-2",
+      "description": "Two stacked earthen bowls.",
+      "imageUrl": "https://images.unsplash.com/photo-1621789939908-fdce2616aabf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym93bHN8ZW58MHx8fHwxNzYyNjkyMjE0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "earthen-bowl-3",
+      "description": "Inside of an empty earthen bowl.",
+      "imageUrl": "https://images.unsplash.com/photo-1599393150731-3386b25a9f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlbXB0eSUyMGJvd2x8ZW58MHx8fHwxNzYyNjkyMjE0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "artisan-vase-1",
+      "description": "An elegant artisan vase with a narrow neck.",
+      "imageUrl": "https://images.unsplash.com/photo-1646035343414-9843a57cbb57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhcnRpc2FuJTIwdmFzZXxlbnwwfHx8fDE3NjI2OTIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "artisan-vase-2",
+      "description": "A collection of artisan vases.",
+      "imageUrl": "https://images.unsplash.com/photo-1612120867524-e3f3c59f4240?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2YXNlc3xlbnwwfHx8fDE3NjI2OTIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "artisan-vase-3",
+      "description": "Detail of the finish on an artisan vase.",
+      "imageUrl": "https://images.unsplash.com/photo-1761062404254-8e19c9e77d6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3R0ZXJ5JTIwZGV0YWlsfGVufDB8fHx8MTc2MjYyNTMyMHww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "clay-teapot-1",
+      "description": "A traditional clay teapot with a curved handle.",
+      "imageUrl": "https://images.unsplash.com/photo-1712933765020-a1f2384c65d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbGF5JTIwdGVhcG90fGVufDB8fHx8MTc2MjY5MjIxNHww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "clay-teapot-2",
+      "description": "A clay teapot pouring tea.",
+      "imageUrl": "https://images.unsplash.com/photo-1560228022-f1a3298022e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWFwb3R8ZW58MHx8fHwxNzYyNjkyMjE0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "clay-teapot-3",
+      "description": "Lid of a clay teapot.",
+      "imageUrl": "https://images.unsplash.com/photo-1729487152555-acd9b7723208?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWFwb3QlMjBkZXRhaWx8ZW58MHx8fHwxNzYyNjkyMjE0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "serving-platter-1",
+      "description": "A large, rustic serving platter.",
+      "imageUrl": "https://images.unsplash.com/photo-1757588558967-2886eeb61da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzZXJ2aW5nJTIwcGxhdHRlcnxlbnwwfHx8fDE3NjI2ODc1NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "serving-platter-2",
+      "description": "Food arranged on a serving platter.",
+      "imageUrl": "https://images.unsplash.com/photo-1669472546359-418a98630699?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmb29kJTIwcGxhdHRlcnxlbnwwfHx8fDE3NjI2MDM5Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": "serving-platter-3",
+      "description": "Edge detail of a serving platter.",
+      "imageUrl": "https://images.unsplash.com/photo-1637370988123-41bd9a6bcd48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwbGF0dGVyfGVufDB8fHx8MTc2MjY5MjIxNXww&ixlib=rb-4.1.0&q=80&w=1080"
+    }
+  ]
+}

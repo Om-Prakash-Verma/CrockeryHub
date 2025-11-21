@@ -1,0 +1,101 @@
+/**
+ * @fileoverview Firestore Security Rules for CrockeryHub.
+ *
+ * Core Philosophy:
+ * This ruleset provides open read access to product data, settings, categories, and brands.
+ * It allows anyone to create a contact form submission.
+ * Admin-level access (writes on products, settings, etc.) is restricted to authenticated users.
+ *
+ * Data Structure:
+ * - /products/{productId}: Stores product information. Publicly readable. Writes are restricted to authenticated users.
+ * - /contact_form_submissions/{submissionId}: Stores contact form submissions. Anyone can create. Reads and deletes are restricted to authenticated users.
+ * - /categories/{categoryId}: Stores product categories. Publicly readable. Writes are restricted to authenticated users.
+ * - /brands/{brandId}: Stores product brands. Publicly readable. Writes are restricted to authenticated users.
+ * - /settings/{settingsId}: Stores global app settings. Publicly readable. Writes are restricted to authenticated users.
+ * - /custom_form_fields/{fieldId}: Stores custom form fields. Publicly readable. Writes are restricted to authenticated users.
+ *
+ * Key Security Decisions:
+ * - Public read access is granted to products, categories, brands, settings and custom form fields.
+ * - Write access (create, update, delete) for products, categories, brands, settings, and custom form fields is restricted to authenticated users.
+ * - Any user can create a document in contact_form_submissions.
+ * - Reading and deleting contact form submissions is restricted to authenticated users to protect privacy while allowing admin access.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Grants public read access but restricts write access to authenticated users.
+     * @path /products/{productId}
+     * @allow (get, list): Any user can read product details.
+     * @allow (write): Only authenticated users can manage products.
+     * @principle Public read, restricted writes.
+     */
+    match /products/{productId} {
+      allow get, list: if true;
+      allow write: if request.auth != null;
+    }
+
+    /**
+     * @description Allows anyone to create a submission. Restricts read and delete access to authenticated users.
+     * @path /contact_form_submissions/{submissionId}
+     * @allow create: Any user can submit a contact form.
+     * @allow (get, list, delete): Only authenticated users (admins) can view or delete submissions.
+     * @deny (update): No client can update submissions.
+     * @principle Write-only for public, read/delete for admins.
+     */
+    match /contact_form_submissions/{submissionId} {
+      allow get, list, delete: if request.auth != null;
+      allow create: if true;
+      allow update: if false;
+    }
+
+     /**
+     * @description Grants public read access but restricts write access to authenticated users.
+     * @path /categories/{categoryId}
+     * @allow (get, list): Any user can read product categories.
+     * @allow (write): Only authenticated users can manage categories.
+     * @principle Public read, restricted writes.
+     */
+    match /categories/{categoryId} {
+      allow get, list: if true;
+      allow write: if request.auth != null;
+    }
+
+    /**
+     * @description Grants public read access but restricts write access to authenticated users.
+     * @path /brands/{brandId}
+     * @allow (get, list): Any user can read product brands.
+     * @allow (write): Only authenticated users can manage brands.
+     * @principle Public read, restricted writes.
+     */
+    match /brands/{brandId} {
+      allow get, list: if true;
+      allow write: if request.auth != null;
+    }
+
+    /**
+     * @description Grants public read access to settings but restricts write access to authenticated users.
+     * @path /settings/{settingsId}
+     * @allow (get, list): Any user can read application settings.
+     * @allow (write): Only authenticated users can manage settings.
+     * @principle Public read, restricted writes.
+     */
+    match /settings/{settingsId} {
+      allow get, list: if true;
+      allow write: if request.auth != null;
+    }
+    
+    /**
+     * @description Grants public read access to form fields but restricts write access to authenticated users.
+     * @path /custom_form_fields/{fieldId}
+     * @allow (get, list): Any user can read the custom form field configuration.
+     * @allow (write): Only authenticated users can manage custom form fields.
+     * @principle Public read, restricted writes.
+     */
+    match /custom_form_fields/{fieldId} {
+      allow get, list: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}

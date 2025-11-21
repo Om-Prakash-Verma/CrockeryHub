@@ -1,0 +1,268 @@
+'use client';
+
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm, useFieldArray } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useFirestore } from '@/firebase';
+import { collection } from 'firebase/firestore';
+import { useToast } from '@/hooks/use-toast';
+import { addDocumentNonBlocking } from '@/firebase/non-blocking-updates';
+import { Trash } from 'lucide-react';
+
+const imageSchema = z.object({
+  imageUrl: z.string().url({ message: 'Please enter a valid URL.' }),
+  description: z.string().min(1, { message: 'Description is required.'}),
+  imageHint: z.string().min(1, { message: 'Hint is required.'})
+});
+
+const productSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  price: z.coerce.number().positive({ message: 'Price must be a positive number.' }),
+  shortDescription: z.string().min(10, { message: 'Short description must be at least 10 characters.' }),
+  description: z.string().min(20, { message: 'Description must be at least 20 characters.' }),
+  specifications: z.object({
+    material: z.string().min(2, { message: 'Material is required.'}),
+    dimensions: z.string().min(2, { message: 'Dimensions are required.'}),
+    origin: z.string().min(2, { message: 'Origin is required.'}),
+  }),
+  images: z.array(imageSchema).min(1, { message: 'At least one image is required.' }),
+});
+
+type ProductFormValues = z.infer<typeof productSchema>;
+
+const createSlug = (name: string) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+};
+
+export function ProductForm({ onSave }: { onSave: () => void }) {
+  const firestore = useFirestore();
+  const { toast } = useToast();
+  const form = useForm<ProductFormValues>({
+    resolver: zodResolver(productSchema),
+    defaultValues: {
+      name: '',
+      price: 0,
+      shortDescription: '',
+      description: '',
+      specifications: {
+        material: '',
+        dimensions: '',
+        origin: '',
+      },
+      images: [{ imageUrl: '', description: '', imageHint: '' }],
+    },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: 'images',
+  });
+
+  async function onSubmit(data: ProductFormValues) {
+    if (!firestore) return;
+    
+    const productsCollection = collection(firestore, 'products');
+    const slug = createSlug(data.name);
+
+    addDocumentNonBlocking(productsCollection, {
+      ...data,
+      slug,
+    });
+
+    toast({
+      title: 'Product Addition Initiated',
+      description: `"${data.name}" is being added.`,
+    });
+    
+    form.reset();
+    onSave();
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Product Name</FormLabel>
+              <FormControl>
+                <Input placeholder="e.g., Rustic Ceramic Mug" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="price"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Price</FormLabel>
+              <FormControl>
+                <Input type="number" placeholder="25.00" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="shortDescription"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Short Description</FormLabel>
+              <FormControl>
+                <Textarea placeholder="A brief, catchy description." {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Full Description</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Detailed product description." {...field} rows={4} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <FormField
+            control={form.control}
+            name="specifications.material"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabel>Material</FormLabel>
+                <FormControl>
+                    <Input placeholder="Stoneware" {...field} />
+                </FormControl>
+                <FormMessage />
+                </FormItem>
+            )}
+            />
+            <FormField
+            control={form.control}
+            name="specifications.dimensions"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabel>Dimensions</FormLabel>
+                <FormControl>
+                    <Input placeholder="4' H x 3.5' W" {...field} />
+                </FormControl>
+                <FormMessage />
+                </FormItem>
+            )}
+            />
+            <FormField
+            control={form.control}
+            name="specifications.origin"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabel>Origin</FormLabel>
+                <FormControl>
+                    <Input placeholder="Portugal" {...field} />
+                </FormControl>
+                <FormMessage />
+                </FormItem>
+            )}
+            />
+        </div>
+
+        <div>
+          <FormLabel>Images</FormLabel>
+          <div className="space-y-4 pt-2">
+            {fields.map((field, index) => (
+              <div key={field.id} className="space-y-2 rounded-md border p-4 relative">
+                <FormField
+                  control={form.control}
+                  name={`images.${index}.imageUrl`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Image URL</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://example.com/image.jpg" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                 <FormField
+                  control={form.control}
+                  name={`images.${index}.description`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Description</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g. A rustic ceramic mug with a handle." {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name={`images.${index}.imageHint`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>AI Hint</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g. ceramic mug" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                {fields.length > 1 && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-2 right-2 text-destructive hover:bg-destructive/10"
+                    onClick={() => remove(index)}
+                  >
+                    <Trash className="h-4 w-4" />
+                  </Button>
+                )}
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => append({ imageUrl: '', description: '', imageHint: '' })}
+            >
+              Add Another Image
+            </Button>
+          </div>
+        </div>
+
+        <Button type="submit" disabled={form.formState.isSubmitting} className="w-full">
+          {form.formState.isSubmitting ? 'Saving...' : 'Save Product'}
+        </Button>
+      </form>
+    </Form>
+  );
+}
