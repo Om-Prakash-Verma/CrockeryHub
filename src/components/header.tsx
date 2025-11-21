@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Link from 'next/link';
@@ -99,7 +100,7 @@ const Header = () => {
   const whatsappNumber = settings?.whatsappNumber || "";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello! I'm interested in your products.")}`;
   const instagramId = process.env.NEXT_PUBLIC_INSTAGRAM_ID;
-  const instagramUrl = `https://instagram.com/${instagramId}`;
+  const instagramUrl = instagramId ? `https://instagram.com/${instagramId}` : '#';
 
 
 
@@ -197,13 +198,13 @@ const Header = () => {
                     {item.label}
                 </Link>
                 ))}
-                 <Button asChild size="sm" variant="secondary" className="ml-2">
+                 <Button asChild size="sm" className="ml-2 text-white bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] hover:opacity-90">
                     <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <InstagramIcon className="text-lg" />
                     </a>
                 </Button>
                 {whatsappNumber && (
-                    <Button asChild size="sm" variant="secondary" className="ml-2">
+                    <Button asChild size="sm" className="ml-2 bg-green-600 text-white hover:bg-green-700">
                         <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer" prefetch={false}>
                             <WhatsAppIcon className="text-lg" />
                         </Link>
@@ -271,14 +272,14 @@ const Header = () => {
                             {item.label}
                             </Link>
                         ))}
-                         <Button asChild size="lg" variant="secondary" className="mt-4">
+                         <Button asChild size="lg" className="mt-4 text-white bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] hover:opacity-90">
                             <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                 <InstagramIcon className="text-2xl" />
                                 Instagram
                             </a>
                         </Button>
                         {whatsappNumber && (
-                             <Button asChild size="lg" variant="secondary" className="mt-4">
+                             <Button asChild size="lg" className="mt-4 bg-green-600 text-white hover:bg-green-700">
                                 <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer" prefetch={false}>
                                     <WhatsAppIcon className="mr-2 text-lg" />
                                     Contact via WhatsApp
@@ -296,9 +297,4 @@ const Header = () => {
   );
 };
 export default Header;
-    
-    
 
-    
-
-    
