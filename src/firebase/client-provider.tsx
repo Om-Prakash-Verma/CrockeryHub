@@ -7,6 +7,7 @@ import { initializeFirebase, useDoc } from '@/firebase';
 import type { AppSettings } from '@/lib/types';
 import { doc } from 'firebase/firestore';
 import ConditionalLayout from '@/components/conditional-layout';
+import Head from 'next/head';
 
 
 function DynamicThemeStyle({ settings }: { settings: AppSettings | null }) {
@@ -36,9 +37,9 @@ function ThemedLayout({ children }: { children: ReactNode }) {
 
     return (
         <>
-            <head>
+            <Head>
                 <DynamicThemeStyle settings={settings} />
-            </head>
+            </Head>
             <ConditionalLayout>{children}</ConditionalLayout>
         </>
     );

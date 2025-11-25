@@ -1,4 +1,6 @@
 
+@import 'locomotive-scroll/src/locomotive-scroll.scss';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,5 +57,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Hide native scrollbar */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
