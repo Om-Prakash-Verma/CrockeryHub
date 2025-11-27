@@ -33,16 +33,12 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
       </head>
-      <body className="min-h-screen flex flex-col font-body antialiased bg-background text-foreground">
-  <FirebaseClientProvider>
-    <main className="flex-1">
-      {children}
-    </main>
-  </FirebaseClientProvider>
-
-  <Toaster />
-</body>
-
+      <body className="font-body antialiased bg-background text-foreground">
+        <FirebaseClientProvider>
+          {children}
+        </FirebaseClientProvider>
+        <Toaster />
+      </body>
     </html>
   );
 }
