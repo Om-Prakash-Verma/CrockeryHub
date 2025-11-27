@@ -48,7 +48,8 @@ export default function HomeClient() {
   const aboutUsImageUrl = settings?.aboutUsImageUrl;
   const heroHeadline = process.env.NEXT_PUBLIC_HERO_HEADLINE || 'Artistry in Every Piece';
   const heroSubheading = process.env.NEXT_PUBLIC_HERO_SUBHEADING || 'Discover our exclusive collection of handcrafted crockery, where timeless design meets modern elegance.';
-  const productsSubheading = process.env.NEXT_PUBLIC_PRODUCTS_SUBHEADING || "Each item is a testament to the artisan's skill, designed to bring beauty and function to your table.";
+  const productsSubheading = process.env.NEXT_PUBLIC_PRODUCTS_SUBHEADING || "Discover stylish crockery, durable kitchen appliances, and smart home essentials.
+We bring you quality products that enhance your cooking and dining experience.";
 
   return (
     <div className="flex flex-col">

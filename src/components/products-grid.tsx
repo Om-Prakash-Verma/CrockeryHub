@@ -32,7 +32,8 @@ export default function ProductsGrid() {
         <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
           {category
             ? `Explore our collection of beautiful ${category.toLowerCase()}.`
-            : "Each item is a testament to the artisan's skill, designed to bring beauty and function to your table."}
+            : "Discover stylish crockery, durable kitchen appliances, and smart home essentials.
+We bring you quality products that enhance your cooking and dining experience."}
         </p>
       </div>
 
