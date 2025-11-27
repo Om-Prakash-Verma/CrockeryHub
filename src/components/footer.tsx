@@ -27,7 +27,7 @@ const Footer = () => {
           )}
           <p>&copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_SITE_TITLE || 'CrockeryHub'}. All rights reserved.</p>
           <div className="flex justify-center items-center gap-4 mt-4">
-             <p className="text-sm font-headline">Beyond Appliances, We Deliver Experience.</p>
+             <p className="text-sm font-headline">Premium Products for Perfect Homes</p>
           </div>
         </div>
       </div>
