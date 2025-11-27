@@ -133,7 +133,7 @@ export default function HomeClient() {
                   </div>
                 ))}
               {featuredProducts.map(product => (
-                <div key={product.id} className="">
+                <div key={product.id} className="h-full">
                   <ProductCard product={product} />
                 </div>
               ))}
