@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import ProductsGrid from '@/components/products-grid';
 import { Skeleton } from '@/components/ui/skeleton';
-
+export const runtime = 'edge';
 const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'CrockeryHub';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
 

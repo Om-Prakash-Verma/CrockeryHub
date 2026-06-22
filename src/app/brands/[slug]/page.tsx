@@ -1,6 +1,6 @@
 
 import BrandDetailsClient from '@/components/brand-details-client';
-
+export const runtime = 'edge';
 type BrandPageProps = {
   params: {
     slug: string;

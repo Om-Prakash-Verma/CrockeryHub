@@ -5,8 +5,7 @@ import { firebaseConfig } from '@/firebase/config';
 import { initializeApp, getApp, getApps } from 'firebase/app';
 import ProductDetailsClient from '@/components/product-details-client';
 import type { Product } from '@/lib/types';
-
-
+export const runtime = 'edge';
 type ProductPageProps = {
   params: {
     id: string; // This is now a slug
