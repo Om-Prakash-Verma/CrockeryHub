@@ -17,10 +17,10 @@ export default function ConditionalLayout({
   }
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="min-h-[calc(100vh-10rem)]">{children}</main>
+      <main className="flex flex-1 flex-col">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

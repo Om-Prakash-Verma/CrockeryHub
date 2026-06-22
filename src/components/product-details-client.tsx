@@ -143,7 +143,7 @@ export default function ProductDetailsClient({ slug }: { slug: string }) {
       product.specifications.origin);
 
   return (
-    <div className="bg-card">
+    <div className="flex-1 bg-card">
       <div className="container mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
           <div className="flex flex-col gap-4">

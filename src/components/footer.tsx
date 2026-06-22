@@ -8,7 +8,7 @@ const Footer = () => {
     : '#';
 
   return (
-    <footer className="bg-card border-t border-border mt-16">
+    <footer className="bg-card border-t border-border">
       <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="text-center text-muted-foreground">
           {shopAddress && (
